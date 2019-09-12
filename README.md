@@ -4,6 +4,28 @@ This Python package contains a web-server that provides a web developer friendly
 
 The server acts as a robust layer between your app and VIES, and by automatically retrying failed requests multiple times, you will experience fewer failed VAT validation requests than with direct requests to the VIES SOAP service.
 
+## Run as Docker container
+
+Just run the following command and a docker container will be created that hosts the api on port 8080:
+
+    docker run -d -p 8080:8040 aschbacd/euvat-json-api
+    
+Afterwards the api can be accessed via this url:
+
+    curl http://127.0.0.1:8080/SE502070882101
+
+### Manual build from source
+
+If you want to manually build the docker image from source you can run the following commands:
+
+    git clone https://github.com/aschbacd/euvat-json-api.git
+    cd euvat-json-api
+    docker build -t euvat-json-api:master .
+
+Then run the docker container using your newly created image:
+
+    docker run -d -p 8080:8040 euvat-json-api:master
+
 ## Installation and quick-start instructions
 
 Here follows command line instructions for installation and running the server software on Unix like systems.
